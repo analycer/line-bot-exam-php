@@ -5,9 +5,6 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 require "tokens.php";
 
-require "http://58.97.47.30:9999/connect.php";
-require "http://58.97.47.30:9999/header.php";
-
 $access_token = $token_access;
 
 // Get POST body content
@@ -30,8 +27,6 @@ if (!is_null($events['events'])) {
 			$inbound_message = $event['message']['text'];
 		
 			if (strpos($inbound_message, 'price') !== false) {
-				require "http://58.97.47.30:9999/connect.php";
-				require "http://58.97.47.30:9999/header.php";
 				$outbound_message = 'DB OK';
 			} else {
 				$outbound_message = 'hello';
