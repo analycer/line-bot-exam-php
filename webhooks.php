@@ -3,20 +3,30 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
-$access_token = 'QL1eDf9RyBtwa/OgMx/h/ZrMeYIEPcZpqHeFHjJ3youZCtPNup1sCmD3l8NI2Mo7ZUQJve4EFPoGXFcJ3qIi8HXN51tYRLvbGkLLCYWtM6JZSTk9ldiyof/5fA3F2CGZOVHODTzfjKrYVbkeYI4gIgdB04t89/1O/w1cDnyilFU=';
+require "tokens.php";
+
+$access_token = $token_access;
 
 // Get POST body content
 $content = file_get_contents('php://input');
+
 // Parse JSON
 $events = json_decode($content, true);
+
+print_r($events);
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
+
 	// Loop through each event
 	foreach ($events['events'] as $event) {
+	
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+		
 			// Get text sent
 			$text = $event['source']['userId'];
+			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
