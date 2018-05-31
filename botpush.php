@@ -1,14 +1,14 @@
 <?php
 
-
+require "tokens.php";
 
 require "vendor/autoload.php";
 
-$access_token = 'QL1eDf9RyBtwa/OgMx/h/ZrMeYIEPcZpqHeFHjJ3youZCtPNup1sCmD3l8NI2Mo7ZUQJve4EFPoGXFcJ3qIi8HXN51tYRLvbGkLLCYWtM6JZSTk9ldiyof/5fA3F2CGZOVHODTzfjKrYVbkeYI4gIgdB04t89/1O/w1cDnyilFU=';
+$access_token = $token_access;
 
-$channelSecret = 'a4a9a5b45e89af6ee640b5be50cc0090';
+$channelSecret = $token_channel;
 
-$pushID = 'Ua0c0cd1ee5061638a0264e9b12041b78';
+$pushID = $token_id;
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
