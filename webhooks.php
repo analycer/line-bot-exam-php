@@ -13,7 +13,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-print_r($events);
+echo "a";
 
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
