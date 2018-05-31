@@ -13,9 +13,6 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-echo "<pre>";
-var_dump($events);
-
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 
@@ -26,7 +23,8 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 		
 			// Get text sent
-			$text = $event['source']['userId'];
+			//$text = $event['source']['userId'];
+			$test = $events;
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
