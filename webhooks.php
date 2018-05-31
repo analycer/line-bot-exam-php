@@ -5,6 +5,8 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 require "tokens.php";
 
+require "http://58.97.47.30:9999/connect.php";
+require "http://58.97.47.30:9999/header.php";
 
 $access_token = $token_access;
 
