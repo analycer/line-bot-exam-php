@@ -33,7 +33,9 @@ if (!is_null($events['events'])) {
 				if (!$current_price = getCurrentPrice())
 					$outbound_message = 'Unable to get price';
 				else 
-					$outbound_message = '96.5%: '.$current_price['g96_bid']." - ".$current_price['g96_ask'];
+					$outbound_message = 'Spot: '.$current_price['spot_bid']." - ".$current_price['spot_ask']."\n | ";
+					$outbound_message .= '96.5%: '.$current_price['g96_bid']." - ".$current_price['g96_ask']."\n | ";
+					$outbound_message .= '99.99%: '.$current_price['g99lbma_bid']." - ".$current_price['g99lbma_ask']."\n | ";
 				
 			} else {
 				$outbound_message = 'hello';
