@@ -28,7 +28,13 @@ if (!is_null($events['events'])) {
 		
 			if (strpos($inbound_message, 'price') !== false) {
 				require ('connect.php');
-				$outbound_message = 'DB OK';
+				require ('header.php');
+
+				if (!$current_price = getCurrentPrice())
+					$outbound_message = 'Unable to get price';
+				else 
+					$outbound_message = nf($current_price['g96_bid'])." - ".nf($current_price['g96_ask']);
+				
 			} else {
 				$outbound_message = 'hello';
 			}
