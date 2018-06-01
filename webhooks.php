@@ -27,6 +27,7 @@ if (!is_null($events['events'])) {
 			$inbound_message = $event['message']['text'];
 		
 			if (strpos($inbound_message, 'price') !== false) {
+				require ('connect.php');
 				$outbound_message = 'DB OK';
 			} else {
 				$outbound_message = 'hello';
