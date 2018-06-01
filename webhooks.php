@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
 				if (!$current_price = getCurrentPrice())
 					$outbound_message = 'Unable to get price';
 				else 
-					$outbound_message = nf($current_price['g96_bid'])." - ".nf($current_price['g96_ask']);
+					$outbound_message = '96.5%: '.$current_price['g96_bid']." - ".$current_price['g96_ask'];
 				
 			} else {
 				$outbound_message = 'hello';
