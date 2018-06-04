@@ -39,7 +39,7 @@ if (!is_null($events['events'])) {
 				
 			} else {
 				//$outbound_message = $event['source']['userId'];
-				$outbound_message = var_dump($event);
+				$outbound_message = print_r($event);
 			}
 			
 			// Get replyToken
