@@ -74,7 +74,7 @@ if (!is_null($events['events'])) {
 				
 			} else {
 				$source_type = $event['source']['type'] . 'Id'; // type = user, group 
-				$outbound_message = $event['source'][$source_type];
+				$outbound_message = $event['source']['type'].": ".$event['source'][$source_type];
 			}
 			
 			// Get replyToken
