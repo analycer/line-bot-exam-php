@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
 					$outbound_message .= '99.99%: '.$current_price['g99lbma_bid']." - ".$current_price['g99lbma_ask']."\n";
 				
 			} else {
-				$outbound_message = $event['source']['userId'];
+				$outbound_message = $event['source']['userId']; 
 			}
 			
 			// Get replyToken
