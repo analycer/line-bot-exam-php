@@ -7,7 +7,7 @@ $access_token = $token_access;
 $channelSecret = $token_channel;
 $pushID = $token_id; // user id
 
-$user_ids = array('Ua0c0cd1ee5061638a0264e9b12041b78','Ua0c0cd1ee5061638a0264e9b12041b78'); // users to send msg to
+$user_ids = array('Ua0c0cd1ee5061638a0264e9b12041b78','Cfbf49c7e3fd9c4ab11e6a26d42a4bb18'); // users to send msg to
 
 $msg = 'hello world';
 if (!empty($_GET["msg"])) $msg = $_GET["msg"]; 
