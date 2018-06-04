@@ -16,10 +16,10 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
 $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
-echo $httpClient;
-echo $bot;
-echo $textMessageBuilder;
-echo $response;
+// echo $httpClient;
+// echo $bot;
+// echo $textMessageBuilder;
+// echo $response;
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
