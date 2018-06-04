@@ -1,5 +1,7 @@
 <?php
 
+// เอา userId ใส่ แล้วจะได้ name + photo ออกมา
+
 require ("tokens.php");
 
 

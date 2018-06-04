@@ -33,16 +33,16 @@ if (!is_null($events['events'])) {
 				if (!$current_price = getCurrentPrice())
 					$outbound_message = 'Unable to get price';
 				else 
-					$outbound_message = 'Spot: '.$current_price['spot_bid']." - ".$current_price['spot_ask']."\n | ";
-					$outbound_message .= '96.5%: '.$current_price['g96_bid']." - ".$current_price['g96_ask']."\n | ";
-					$outbound_message .= '99.99%: '.$current_price['g99lbma_bid']." - ".$current_price['g99lbma_ask']."\n | ";
+					$outbound_message = 'Spot: '.$current_price['spot_bid']." - ".$current_price['spot_ask']."\n";
+					$outbound_message .= '96.5%: '.$current_price['g96_bid']." - ".$current_price['g96_ask']."\n";
+					$outbound_message .= '99.99%: '.$current_price['g99lbma_bid']." - ".$current_price['g99lbma_ask']."\n";
 				
 			} else {
-				$outbound_message = 'hello';
+				$outbound_message = $event['source']['userId'];
 			}
 			
 			// Get replyToken
-			$replyToken = $event['replyToken'];
+			$replyToken = $event['replyToken']; // ต้องส่งกลับให้ใคร,​กลุ่มไหน
 
 			//  Build message to reply back ≈
 			$messages = [
@@ -56,6 +56,7 @@ if (!is_null($events['events'])) {
 				'replyToken' => $replyToken,
 				'messages' => [$messages],
 			];
+
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
@@ -72,4 +73,5 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
+
 echo "OK";
