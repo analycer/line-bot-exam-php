@@ -27,16 +27,13 @@ $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
 $response = $bot->pushMessage($id, $textMessageBuilder);
 
 
-// echo "<pre>";
-// var_dump( $httpClient );
-// echo "<hr>";
-// var_dump( $bot );
-// echo "<hr>";
- var_dump( $textMessageBuilder );
- echo "<hr>";
- var_dump( $response );
- echo "<hr>";
-
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-var_dump( $response->getHTTPStatus() );
-if ($response->getHTTPStatus() == '200') echo 'Message Sent';
+if ($response->getHTTPStatus() == 200) 
+    echo 'ส่งข้อความแล้ว';
+else {
+    echo 'ไม่สามารถส่งข้อความได้'."<hr><pre>";
+    // var_dump( $httpClient );
+    // var_dump( $bot );
+    var_dump( $textMessageBuilder ); echo "<hr>";
+    var_dump( $response );
+}
