@@ -8,8 +8,6 @@ $channelSecret = $token_channel;
 $pushID = $token_id; // user id
 
 
-//$user_ids = array('Ua0c0cd1ee5061638a0264e9b12041b78','Cfbf49c7e3fd9c4ab11e6a26d42a4bb18'); // users , groups to send msg to
-
 // ------------------------- DEFAULTS / FORM ---------------------------------------
 $id = '';
 $msg = '';
@@ -24,14 +22,14 @@ $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
 
 // ----------------------------- Send to all users -----------------------------------
 //foreach ($user_ids as $id) 
-$response = $bot->pushMessage($id, $textMessageBuilder);
+$response = $bot->pushMessage($receiver, $textMessageBuilder);
 
 
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 if ($response->getHTTPStatus() == 200) 
-    echo 'ส่งข้อความแล้ว';
+    echo "<font color='ForestGreen'>ส่งข้อความแล้ว</font>";
 else {
-    echo 'ไม่สามารถส่งข้อความได้'."<hr><pre>";
+    echo "<font color='red'>ไม่สามารถส่งข้อความได้ </font><hr><pre>";
     // var_dump( $httpClient );
     // var_dump( $bot );
     var_dump( $textMessageBuilder ); echo "<hr>";
