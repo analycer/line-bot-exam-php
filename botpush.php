@@ -38,4 +38,4 @@ $response = $bot->pushMessage($id, $textMessageBuilder);
 // echo "<hr>";
 
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-if ($response->getHTTPStatus() == 200) echo 'Message Sent';
+if ($response->getHTTPStatus() == '200') echo 'Message Sent';

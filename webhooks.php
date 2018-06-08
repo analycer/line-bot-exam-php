@@ -72,7 +72,7 @@ if (!is_null($events['events'])) {
 				else 
 					$outbound_message = 'Spot: '.$current_price['spot_bid']." - ".$current_price['spot_ask']."\n";
 					$outbound_message .= '96.5%: '.$current_price['g96_bid']." - ".$current_price['g96_ask']."\n";
-					$outbound_message .= '99.99%: '.$current_price['g99lbma_bid']." - ".$current_price['g99lbma_ask']."\n";
+					$outbound_message .= '99.99%: '.$current_price['g99lbma_bid']." - ".$current_price['g99lbma_ask'];
 				
 			} else {
 				$source_type = $event['source']['type'] . 'Id'; // type = user, group 
