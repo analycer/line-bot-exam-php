@@ -32,10 +32,11 @@ $response = $bot->pushMessage($id, $textMessageBuilder);
 // echo "<hr>";
 // var_dump( $bot );
 // echo "<hr>";
-// var_dump( $textMessageBuilder );
-// echo "<hr>";
-// var_dump( $response );
-// echo "<hr>";
+ var_dump( $textMessageBuilder );
+ echo "<hr>";
+ var_dump( $response );
+ echo "<hr>";
 
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+var_dump( $response->getHTTPStatus() );
 if ($response->getHTTPStatus() == '200') echo 'Message Sent';
