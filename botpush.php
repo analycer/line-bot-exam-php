@@ -1,25 +1,34 @@
 <?php
 
-require "tokens.php";
+require "tokens.php"; 
 require "vendor/autoload.php";
 
 $access_token = $token_access;
 $channelSecret = $token_channel;
 $pushID = $token_id; // user id
 
-$user_ids = array('Ua0c0cd1ee5061638a0264e9b12041b78','Cfbf49c7e3fd9c4ab11e6a26d42a4bb18'); // users to send msg to
+$GROUP_ID_STOCK = 'C56051d42887f2c8787eff2909f348536';
 
-$msg = 'hello world';
+//$user_ids = array('Ua0c0cd1ee5061638a0264e9b12041b78','Cfbf49c7e3fd9c4ab11e6a26d42a4bb18'); // users , groups to send msg to
+
+// ------------------------- DEFAULTS / FORM ---------------------------------------
+$id = '';
+$msg = '';
 if (!empty($_GET["msg"])) $msg = $_GET["msg"]; 
+if (!empty($_GET["receiver"])) $receiver = $_GET["receiver"]; 
 
-// Construct CLIENT / BOT / MESSAGE
+switch ($receiver) {
+    case 'stock': $id = $GROUP_ID_STOCK; break;
+}
+
+// -------------------------- Construct CLIENT / BOT / MESSAGE -----------------------
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
 
-// Send to all users
-foreach ($user_ids as $id) 
-    $response = $bot->pushMessage($id, $textMessageBuilder);
+// ----------------------------- Send to all users -----------------------------------
+//foreach ($user_ids as $id) 
+$response = $bot->pushMessage($id, $textMessageBuilder);
 
 
 // echo "<pre>";

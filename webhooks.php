@@ -13,6 +13,8 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
+/* 			type: message / follow / unfollow / join / leave / postback (กดปุ่ม template) / baecon / account link 		*/
+
 /*				EVENT[] จาก คนเดียว
 
 

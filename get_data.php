@@ -25,6 +25,8 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 
-echo $ch."<hr>";
+ob_start();
+var_dump($ch);
+echo ob_get_clean();
 
 echo $result;
