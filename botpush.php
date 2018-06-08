@@ -27,7 +27,7 @@ $response = $bot->pushMessage($receiver, $textMessageBuilder);
 
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 if ($response->getHTTPStatus() == 200) 
-    echo "<font color='ForestGreen'>ส่งข้อความแล้ว</font>";
+    echo "<font color='ForestGreen'>ส่งข้อความแล้ว</font><br>$msg";
 else {
     echo "<font color='red'>ไม่สามารถส่งข้อความได้ </font><hr><pre>";
     // var_dump( $httpClient );
