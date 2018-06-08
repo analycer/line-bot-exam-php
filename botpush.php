@@ -7,7 +7,6 @@ $access_token = $token_access;
 $channelSecret = $token_channel;
 $pushID = $token_id; // user id
 
-$GROUP_ID_STOCK = 'C56051d42887f2c8787eff2909f348536';
 
 //$user_ids = array('Ua0c0cd1ee5061638a0264e9b12041b78','Cfbf49c7e3fd9c4ab11e6a26d42a4bb18'); // users , groups to send msg to
 
@@ -17,9 +16,6 @@ $msg = '';
 if (!empty($_GET["msg"])) $msg = $_GET["msg"]; 
 if (!empty($_GET["receiver"])) $receiver = $_GET["receiver"]; 
 
-switch ($receiver) {
-    case 'stock': $id = $GROUP_ID_STOCK; break;
-}
 
 // -------------------------- Construct CLIENT / BOT / MESSAGE -----------------------
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
@@ -41,4 +37,5 @@ $response = $bot->pushMessage($id, $textMessageBuilder);
 // var_dump( $response );
 // echo "<hr>";
 
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+//echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+if ($response->getHTTPStatus() == 200) echo 'Message Sent';
