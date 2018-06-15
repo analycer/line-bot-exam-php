@@ -63,7 +63,7 @@ if (!is_null($events['events'])) {
 			//$text = $event['source']['userId'];
 			$inbound_message = $event['message']['text'];
 		
-			if (strpos($inbound_message, 'price') !== false) {
+			if (strpos($inbound_message, 'price') !== false) {									// PRICE
 				require ('connect.php');
 				require ('header.php');
 
@@ -73,8 +73,8 @@ if (!is_null($events['events'])) {
 					$outbound_message = 'Spot: '.$current_price['spot_bid']." - ".$current_price['spot_ask']."\n";
 					$outbound_message .= '96.5%: '.$current_price['g96_bid']." - ".$current_price['g96_ask']."\n";
 					$outbound_message .= '99.99%: '.$current_price['g99lbma_bid']." - ".$current_price['g99lbma_ask'];
-				
-			} else {
+					
+			} else if (strpos($inbound_message, 'showid') !== false) {							// SHOW ID
 				$source_type = $event['source']['type'] . 'Id'; // type = user, group 
 				$outbound_message = $event['source']['type'].": ".$event['source'][$source_type];
 			}
