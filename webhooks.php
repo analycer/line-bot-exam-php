@@ -77,6 +77,8 @@ if (!is_null($events['events'])) {
 			} else if (strpos($inbound_message, 'showid') !== false) {							// SHOW ID
 				$source_type = $event['source']['type'] . 'Id'; // type = user, group 
 				$outbound_message = $event['source']['type'].": ".$event['source'][$source_type];
+			} else {
+				exit();
 			}
 			
 			// Get replyToken
